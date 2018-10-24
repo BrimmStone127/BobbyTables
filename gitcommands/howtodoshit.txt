@@ -1,0 +1,23 @@
+# how to commit
+git add .
+
+git status
+
+git commit -m "I added this file"
+
+
+#how to push
+
+git push
+
+git push --set-upstream origin/master
+(you shouldn't need to do this)
+
+#how to pull
+git pull
+
+(same as the following)
+
+git fetch
+
+git merge
