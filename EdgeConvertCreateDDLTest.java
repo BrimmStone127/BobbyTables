@@ -1,16 +1,12 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
-public abstract class EdgeConvertCreateDDLTest extends EdgeConvertCreateDDL {
-
-  @Override
-  public abstract String getDatabseName();
-  public abstract String getProductName();
-  public abstract String getSQLString();
-  public abstract void createDDL();
+public class EdgeConvertCreateDDLTest {
 
   @Test
   public void testDatabaseName() {
-    EdgeConvertCreateDDL tester = new EdgeConvertCreateDDL();
-    assertEquals("Database name should be Dicks", "Dicks", tester.getDatabaseName());
+    CreateDDLMySQL ddl = new CreateDDLMySQL();
+    assertEquals("This DB name should be null",null, ddl.getDatabaseName());
+    assertEquals("This product name should be MySQL","MySQL", ddl.getProductName());
+    assertEquals("This SQL String should be string", "MySQLDB", ddl.getSQLString());
   }
 }
