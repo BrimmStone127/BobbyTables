@@ -5,7 +5,7 @@ public class EdgeTableTest extends EdgeTable {
   
   @Before
   public void setUp() throws Exception{
-    testObj = new EdgeTable("1|BolognaSandwich");
+    testObj = new EdgeConnector("1|BolognaSandwich" );
     runner();
   }
 
@@ -16,12 +16,12 @@ public class EdgeTableTest extends EdgeTable {
 
   @Test 
   public void getNumFigureTest(){
-    assertEquals("numFigureTest initialized to 1, expected output - 1",1,testObj.getNumFigure());
+    assertEquals("numFigureTest initialized to 1, expected output - 1",1,testObj.getNumFigureTest());
   }
 
   @Test
   public void getNameTest(){
-    assertEquals("Name set to 'BolognaSandwich', expected output - 'BolognaSandwich'", "BolognaSandwich", testObj.getName());
+    assertEquals("Name set to 'BolognaSandwich', expected output - 'BolognaSandwich'", "BolognaSandwich", testObj.getNameTest());
   }
 
 }
