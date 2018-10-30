@@ -1,8 +1,19 @@
 import static org.junit.Assert.*;
-import org.junit.Test;
+import org.junit.*;
 
-public class EdgeTableTest extends EdgeTable {
+public class EdgeTableTest{
   
+  EdgeTable testObj;
+  /*
+  public static void main(String[] args){
+    EdgeTableTest test = new EdgeTableTest();
+    try{
+      test.setUp();
+    } catch(Exception e){
+      e.printStackTrace();
+    } 
+  }*/
+
   @Before
   public void setUp() throws Exception{
     testObj = new EdgeTable("1|BolognaSandwich");
@@ -12,6 +23,13 @@ public class EdgeTableTest extends EdgeTable {
   public void runner(){
     getNumFigureTest();
     getNameTest();
+    relatedFieldsTest();
+  }
+
+  @Test
+  public void relatedFieldsTest(){
+    testObj.addNativeField(1);
+    assertEquals("Field added to NativeField array, expected field - 1",1,testObj.getNativeFieldsArray());
   }
 
   @Test 

@@ -1,11 +1,22 @@
 import static org.junit.Assert.*;
-import org.junit.Test;
+import org.junit.*;
 
-public class EdgeTableTest extends EdgeTable {
+public class EdgeTableTest{
   
+  EdgeTable testObj;
+  /*
+  public static void main(String[] args){
+    EdgeTableTest test = new EdgeTableTest();
+    try{
+      test.setUp();
+    } catch(Exception e){
+      e.printStackTrace();
+    } 
+  }*/
+
   @Before
   public void setUp() throws Exception{
-    testObj = new EdgeConnector("1|BolognaSandwich" );
+    testObj = new EdgeTable("1|BolognaSandwich");
     runner();
   }
 
@@ -16,12 +27,12 @@ public class EdgeTableTest extends EdgeTable {
 
   @Test 
   public void getNumFigureTest(){
-    assertEquals("numFigureTest initialized to 1, expected output - 1",1,testObj.getNumFigureTest());
+    assertEquals("numFigureTest initialized to 1, expected output - 1",1,testObj.getNumFigure());
   }
 
   @Test
   public void getNameTest(){
-    assertEquals("Name set to 'BolognaSandwich', expected output - 'BolognaSandwich'", "BolognaSandwich", testObj.getNameTest());
+    assertEquals("Name set to 'BolognaSandwich', expected output - 'BolognaSandwich'", "BolognaSandwich", testObj.getName());
   }
 
 }
