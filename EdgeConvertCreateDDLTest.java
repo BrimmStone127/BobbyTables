@@ -1,12 +1,19 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
 public class EdgeConvertCreateDDLTest {
+  CreateDDLMySQL ddl = new CreateDDLMySQL();
 
   @Test
   public void testDatabaseName() {
-    CreateDDLMySQL ddl = new CreateDDLMySQL();
     assertEquals("This DB name should be null",null, ddl.getDatabaseName());
+  }
+  @Test
+  public void testProductName() {
     assertEquals("This product name should be MySQL","MySQL", ddl.getProductName());
-    assertEquals("This SQL String should be string", "MySQLDB", ddl.getSQLString());
+  }
+  @Test
+  public void testSQLString() {
+    ddl.getSQLString();
+    assertEquals("This DB name should be MySQLDB","MySQLDB", ddl.getDatabaseName());
   }
 }
