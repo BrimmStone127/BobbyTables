@@ -2,18 +2,25 @@ import java.util.*;
 import java.io.*;
 
 public class MainTester{
+  
+  /*
+   *Test EdgeConvertCreateDDLTest.java
+   *Test EdgeTableTest.java
+   *Example Command:
+   *java MainTester -n "EdgeConvertCreateDDLTest, testProductName, MySQL"
+  */
 
   public static void main(String[] args){
     MainTester main = new MainTester();
-    main.read();
+    main.read(args);
   }
 
-  public void read(){
-    Scanner scan = new Scanner(System.in);
-    String command = scan.nextLine();
-    String[] commandSplit = command.split(" ");
-
-    if(commandSplit[0].equals("-h")){
+  public void read(String[] arguments){
+    String[] readArgs = arguments;
+    //Scanner scan = new Scanner(System.in);
+    //String command = scan.nextLine();
+    //String[] commandSplit = command.split(" ")
+    if(readArgs[0].equals("-h")){
       System.out.println();
       System.out.println("************* H E L P ***************************");
       System.out.println();
@@ -24,26 +31,22 @@ public class MainTester{
       System.out.println("exit           ------------ Exit application");
       System.out.println("-------------------------------------------------");
       System.out.println();
-      read();
-    }else if(commandSplit[0].equals("-n")){
+    }else if(readArgs[0].equals("-n")){
       try{
-	System.out.println("TEST OBJECT"+commandSplit[1]);
+	System.out.println("TEST OBJECT"+readArgs[1]);
       }catch(ArrayIndexOutOfBoundsException exception){
 	System.out.println("ERROR: TEST OBJECT NOT SPECIFIED. '-h' FOR HELP");
       }
-      read();
-    }else if(commandSplit[0].equals("-f")){
+    }else if(readArgs[0].equals("-f")){
       try{
-	System.out.println("TEST FILE "+commandSplit[1]);
+	System.out.println("TEST FILE "+readArgs[1]);
       }catch(ArrayIndexOutOfBoundsException exception){
 	System.out.println("ERROR: TEST FILE NOT SPECIFIED. '-h' FOR HELP");
       }
-      read();
-    }else if(commandSplit[0].equals("exit")){
+    }else if(readArgs[0].equals("exit")){
       System.exit(0);
     }else{
       System.out.println("Command not recognized, enter -h to view help menu");
-      read();
     }
   }
 
