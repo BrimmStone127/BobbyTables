@@ -26,10 +26,18 @@ public class MainTester{
       System.out.println();
       read();
     }else if(commandSplit[0].equals("-n")){
-      System.out.println("TEST OBJECT"+commandSplit[1]);
+      try{
+	System.out.println("TEST OBJECT"+commandSplit[1]);
+      }catch(ArrayIndexOutOfBoundsException exception){
+	System.out.println("ERROR: TEST OBJECT NOT SPECIFIED. '-h' FOR HELP");
+      }
       read();
     }else if(commandSplit[0].equals("-f")){
-      System.out.println("TEST FILE "+commandSplit[1]);
+      try{
+	System.out.println("TEST FILE "+commandSplit[1]);
+      }catch(ArrayIndexOutOfBoundsException exception){
+	System.out.println("ERROR: TEST FILE NOT SPECIFIED. '-h' FOR HELP");
+      }
       read();
     }else if(commandSplit[0].equals("exit")){
       System.exit(0);
