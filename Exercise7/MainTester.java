@@ -33,7 +33,24 @@ public class MainTester{
       System.out.println();
     }else if(readArgs[0].equals("-n")){
       try{
-	System.out.println("TEST OBJECT"+readArgs[1]);
+	String[] info = readArgs[1].split(",");
+	if(info[0].equals("EdgeConvertCreateDDLTest")){
+	  try{
+	    EdgeConvertCreateDDLTest ecc = new EdgeConvertCreateDDLTest();
+	    ecc.setUp();
+	    ecc.setProductName(info[2]);
+	    ecc.testProductName();
+	  }catch(Exception e){e.printStackTrace();}
+	}else if(info[0].equals("EdgeTableTest")){
+	  try{
+	    EdgeTableTest ett = new EdgeTableTest();
+	    ett.setUp();
+	    ett.setRelatedFields(1);
+	    ett.relatedFieldsTest();
+	  }catch(Exception e){e.printStackTrace();}
+	}else{
+	  System.out.println("ERROR");
+	}
       }catch(ArrayIndexOutOfBoundsException exception){
 	System.out.println("ERROR: TEST OBJECT NOT SPECIFIED. '-h' FOR HELP");
       }
