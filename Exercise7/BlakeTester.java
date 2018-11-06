@@ -1,5 +1,7 @@
 import java.util.*;
 import java.io.*;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class BlakeTester{
   
@@ -11,8 +13,8 @@ public class BlakeTester{
   */
 
   public static void main(String[] args){
-    BlakeTester main = new BlakeTester();
-    main.read(args);
+    BlakeTester test = new BlakeTester();
+    test.read(args);
     try{
       EdgeConvertCreateDDLTest edgeConvert = new EdgeConvertCreateDDLTest();
       EdgeTableTest edgeTest = new EdgeTableTest();
@@ -47,6 +49,7 @@ public class BlakeTester{
       System.out.println();
     }else if(readArgs[0].equals("-n")){
       try{
+	System.out.println(readArgs[0]);
 	System.out.println("TEST OBJECT"+readArgs[1]);
       }catch(ArrayIndexOutOfBoundsException exception){
 	System.out.println("ERROR: TEST OBJECT NOT SPECIFIED. '-h' FOR HELP");
