@@ -49,7 +49,6 @@ public class BlakeTester{
       System.out.println();
     }else if(readArgs[0].equals("-n")){
       try{
-	System.out.println(readArgs[0]);
 	System.out.println("TEST OBJECT"+readArgs[1]);
       }catch(ArrayIndexOutOfBoundsException exception){
 	System.out.println("ERROR: TEST OBJECT NOT SPECIFIED. '-h' FOR HELP");
