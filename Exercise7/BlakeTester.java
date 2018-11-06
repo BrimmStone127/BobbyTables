@@ -12,7 +12,7 @@ public class BlakeTester{
 
   public static void main(String[] args){
     BlakeTester main = new BlakeTester();
-   // main.read(args);
+    main.read(args);
     try{
       EdgeConvertCreateDDLTest edgeConvert = new EdgeConvertCreateDDLTest();
       EdgeTableTest edgeTest = new EdgeTableTest();
@@ -28,7 +28,7 @@ public class BlakeTester{
     }
   }
 
-/*
+
   public void read(String[] arguments){
     String[] readArgs = arguments;
     //Scanner scan = new Scanner(System.in);
@@ -54,14 +54,23 @@ public class BlakeTester{
     }else if(readArgs[0].equals("-f")){
       try{
 	System.out.println("TEST FILE "+readArgs[1]);
-      }catch(ArrayIndexOutOfBoundsException exception){
+      		File file = new File("" + readArgs[1]);
+		BufferedReader br = new BufferedReader(new FileReader(file)); 
+		String line;
+		while((line = br.readLine()) != null){
+			System.out.println(line);
+		}
+	}catch(ArrayIndexOutOfBoundsException exception){
 	System.out.println("ERROR: TEST FILE NOT SPECIFIED. '-h' FOR HELP");
       }
+	catch(IOException io){
+		io.printStackTrace();
+	}
     }else if(readArgs[0].equals("exit")){
       System.exit(0);
     }else{
       System.out.println("Command not recognized, enter -h to view help menu");
     }
   }
-*/
+
 }
