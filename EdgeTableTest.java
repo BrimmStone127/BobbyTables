@@ -3,43 +3,65 @@ import org.junit.*;
 
 public class EdgeTableTest{
   
-  EdgeTable testObj;
-  /*
-  public static void main(String[] args){
-    EdgeTableTest test = new EdgeTableTest();
-    try{
-      test.setUp();
-    } catch(Exception e){
-      e.printStackTrace();
-    } 
-  }*/
+	EdgeTable testObj;
 
-  @Before
-  public void setUp() throws Exception{
-    testObj = new EdgeTable("1|BolognaSandwich");
-    runner();
-  }
 
-  public void runner(){
-    getNumFigureTest();
-    getNameTest();
-    relatedFieldsTest();
-  }
+	@Before
+	public void setUp() throws Exception {
+		testObj = new EdgeTable("1|2");
+		runner();
+	}
 
-  @Test
-  public void relatedFieldsTest(){
-    testObj.addNativeField(1);
-    assertEquals("Field added to NativeField array, expected field - 1",1,testObj.getNativeFieldsArray());
-  }
+	public void runner(){
+		testGetNumFigure();
+	 	testGetName();
+	 	//testAddRelatedTable();
+		//testGetRelatedTablesArray();
+		//testGetRelatedFieldsArray();
+		//testSetRelatedField();
+		//testGetRelatedTablesArray();
+		//testGetNativeFieldsArray();
+		//testAddNativeField(1);
+	}
 
-  @Test 
-  public void getNumFigureTest(){
-    assertEquals("numFigureTest initialized to 1, expected output - 1",1,testObj.getNumFigure());
-  }
+	@Test
+   public void testGetNumFigure() {
+      assertEquals("NumFigure was intialized to 1 so it should be 1",1,testObj.getNumFigure());
+   }
+   
+	@Test
+   public void testGetName() {
+      assertEquals("Name was intialized to 2, so it should be 2","2",testObj.getName());
+   }
+   
+/*
+	@Test
+   public void testAddRelatedTable() {
+      testObj.addRelatedTable(new Integer(relatedTable));
+		assertArrayEquals("Name was intialized to 2, so it should be 2",testObj.getRelatedTablesArray(),testObj.getRelatedTablesArray());
+   }
+   
+	@Test
+   public void testGetRelatedTablesArray() {
+		assertArrayEquals("Name was intialized to 2, so it should be 2",testObj.getRelatedTablesArray(),testObj.getRelatedTablesArray());
+   }
+   
+	@Test
+   public void testGetRelatedFieldsArray() {
+      assertArrayEquals("Name was intialized to 2, so it should be 2",testObj.getRelatedFieldsArray(),testObj.getRelatedFieldsArray());
+   }
+   
+	@Test
+   public void testSetRelatedField(int index, int relatedValue) {
+      testObj.setRelatedField(index, relatedValue);
+		assertArrayEquals("Name was intialized to 2, so it should be 2",testObj.getRelatedFieldsArray(),testObj.getRelatedFieldsArray());
+   }
+   
+	@Test
+   public void testGetNativeFieldsArray() {
+      assertArrayEquals("Name was intialized to 2, so it should be 2",testObj.getNativeFieldsArray(),testObj.getNativeFieldsArray());
+   }
 
-  @Test
-  public void getNameTest(){
-    assertEquals("Name set to 'BolognaSandwich', expected output - 'BolognaSandwich'", "BolognaSandwich", testObj.getName());
-  }
 
+*/
 }

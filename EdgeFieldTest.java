@@ -4,12 +4,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class EdgeFieldTest {
-        EdgeField testObj;
+   
+	EdgeField testObj;
 
 	@Before
 	public void setUp() throws Exception {
-        testObj = new EdgeField("1|2");
-        runner();
+        	testObj = new EdgeField("1|2");
+        	runner();
 	}
 	
 	public void runner() {
