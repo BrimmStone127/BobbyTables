@@ -3,3 +3,5 @@
 *~
 *.class
 .idea/
+bobbytablesproject/target/
+bobbytablesproject/.idea/*
