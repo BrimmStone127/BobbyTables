@@ -1,6 +1,5 @@
 package com.bobbytables.app;
 
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -57,7 +56,7 @@ public class EdgeConvertGUI {
    static DefaultListModel dlmDTTablesAll, dlmDTFieldsTablesAll;
    static JMenuBar jmbDTMenuBar;
    static JMenu jmDTFile, jmDTOptions, jmDTHelp;
-   static JMenuItem jmiDTOpenEdge, jmiDTOpenSave, jmiDTSave, jmiDTSaveAs, jmiDTExit, jmiDTOptionsOutputLocation, jmiDTOptionsShowProducts, jmiDTHelpAbout;
+   static JMenuItem jmiDTOpenEdge, jmiDTOpenSave, jmiDTSave, jmiDTSaveAs, jmiDTExit, jmiDTOptionsOutputLocation, jmiDTOptionsShowProducts, jmiDTHelpAbout, jmiDTHelpDocumentation;
    
    //Define Relations screen objects
    static JFrame jfDR;
@@ -69,7 +68,7 @@ public class EdgeConvertGUI {
    static JScrollPane jspDRTablesRelations, jspDRTablesRelatedTo, jspDRFieldsTablesRelations, jspDRFieldsTablesRelatedTo;
    static JMenuBar jmbDRMenuBar;
    static JMenu jmDRFile, jmDROptions, jmDRHelp;
-   static JMenuItem jmiDROpenEdge, jmiDROpenSave, jmiDRSave, jmiDRSaveAs, jmiDRExit, jmiDROptionsOutputLocation, jmiDROptionsShowProducts, jmiDRHelpAbout;
+   static JMenuItem jmiDROpenEdge, jmiDROpenSave, jmiDRSave, jmiDRSaveAs, jmiDRExit, jmiDROptionsOutputLocation, jmiDROptionsShowProducts, jmiDRHelpAbout, jmiDRHelpDocumentation;
    
    public EdgeConvertGUI() {
       menuListener = new EdgeMenuListener();
@@ -149,6 +148,10 @@ public class EdgeConvertGUI {
       jmiDTHelpAbout.setMnemonic(KeyEvent.VK_A);
       jmiDTHelpAbout.addActionListener(menuListener);
       jmDTHelp.add(jmiDTHelpAbout);
+      jmiDTHelpDocumentation = new JMenuItem("Documentation");
+      jmiDTHelpDocumentation.setMnemonic(KeyEvent.VK_A);
+      jmiDTHelpDocumentation.addActionListener(menuListener);
+      jmDTHelp.add(jmiDTHelpDocumentation);
       
       jfcEdge = new JFileChooser();
       jfcOutputDir = new JFileChooser();
@@ -533,6 +536,10 @@ public class EdgeConvertGUI {
       jmiDRHelpAbout.setMnemonic(KeyEvent.VK_A);
       jmiDRHelpAbout.addActionListener(menuListener);
       jmDRHelp.add(jmiDRHelpAbout);
+      jmiDRHelpDocumentation = new JMenuItem("Documentation");
+      jmiDRHelpDocumentation.setMnemonic(KeyEvent.VK_A);
+      jmiDRHelpDocumentation.addActionListener(menuListener);
+      jmDRHelp.add(jmiDRHelpDocumentation);
 
       jpDRCenter = new JPanel(new GridLayout(2, 2));
       jpDRCenter1 = new JPanel(new BorderLayout());
@@ -1277,6 +1284,10 @@ public class EdgeConvertGUI {
                                                 "by Stephen A. Capperell\n" +
                                                 "2007-2008");
          }
+	if ((ae.getSource() == jmiDTHelpDocumentation) || (ae.getSource() == jmiDRHelpDocumentation)) {
+		JOptionPane.showMessageDialog(null, 	"For MySQL Documentation Please Visit\n" +
+							"https://dev.mysql.com/doc/refman/5.7/en/");
+	}
       } // EdgeMenuListener.actionPerformed()
    } // EdgeMenuListener
 } // EdgeConvertGUI
