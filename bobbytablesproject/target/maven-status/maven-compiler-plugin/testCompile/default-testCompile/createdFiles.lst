@@ -1,5 +1,5 @@
 com/bobbytables/app/EdgeFieldTest.class
-com/bobbytables/app/EdgeConvertCreateDDLTest.class
 com/bobbytables/app/EdgeTableTest.class
 com/bobbytables/app/CreateDDLMySQLTest.class
+com/bobbytables/app/EdgeConvertCreateDDLTest.class
 src/test/java/com/bobbytables/app/AppTest.class
