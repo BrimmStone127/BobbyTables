@@ -56,7 +56,7 @@ public class EdgeConvertGUI {
    static DefaultListModel dlmDTTablesAll, dlmDTFieldsTablesAll;
    static JMenuBar jmbDTMenuBar;
    static JMenu jmDTFile, jmDTOptions, jmDTHelp;
-   static JMenuItem jmiDTOpenEdge, jmiDTOpenSave, jmiDTSave, jmiDTSaveAs, jmiDTExit, jmiDTOptionsOutputLocation, jmiDTOptionsShowProducts, jmiDTHelpAbout, jmiDTHelpDocumentation;
+   static JMenuItem jmiDTOpenEdge, jmiDTOpenSave, jmiDTSave, jmiDTSaveAs, jmiDTExit, jmiDTOptionsOutputLocation, jmiDTOptionsShowProducts, jmiDTHelpAbout, jmiDTHelpDocumentation, jmiDTHelpWalk;
    
    //Define Relations screen objects
    static JFrame jfDR;
@@ -68,7 +68,7 @@ public class EdgeConvertGUI {
    static JScrollPane jspDRTablesRelations, jspDRTablesRelatedTo, jspDRFieldsTablesRelations, jspDRFieldsTablesRelatedTo;
    static JMenuBar jmbDRMenuBar;
    static JMenu jmDRFile, jmDROptions, jmDRHelp;
-   static JMenuItem jmiDROpenEdge, jmiDROpenSave, jmiDRSave, jmiDRSaveAs, jmiDRExit, jmiDROptionsOutputLocation, jmiDROptionsShowProducts, jmiDRHelpAbout, jmiDRHelpDocumentation;
+   static JMenuItem jmiDROpenEdge, jmiDROpenSave, jmiDRSave, jmiDRSaveAs, jmiDRExit, jmiDROptionsOutputLocation, jmiDROptionsShowProducts, jmiDRHelpAbout, jmiDRHelpDocumentation, jmiDRHelpWalk;
    
    public EdgeConvertGUI() {
       menuListener = new EdgeMenuListener();
@@ -152,6 +152,10 @@ public class EdgeConvertGUI {
       jmiDTHelpDocumentation.setMnemonic(KeyEvent.VK_A);
       jmiDTHelpDocumentation.addActionListener(menuListener);
       jmDTHelp.add(jmiDTHelpDocumentation);
+      jmiDTHelpWalk = new JMenuItem("Walkthrough");
+      jmiDTHelpWalk.setMnemonic(KeyEvent.VK_A);
+      jmiDTHelpWalk.addActionListener(menuListener);
+      jmDTHelp.add(jmiDTHelpWalk);
       
       jfcEdge = new JFileChooser();
       jfcOutputDir = new JFileChooser();
@@ -540,6 +544,11 @@ public class EdgeConvertGUI {
       jmiDRHelpDocumentation.setMnemonic(KeyEvent.VK_A);
       jmiDRHelpDocumentation.addActionListener(menuListener);
       jmDRHelp.add(jmiDRHelpDocumentation);
+      jmDRHelp.add(jmiDRHelpWalk);
+      jmiDRHelpWalk = new JMenuItem("Walkthrough");
+      jmiDRHelpWalk.setMnemonic(KeyEvent.VK_A);
+      jmiDRHelpWalk.addActionListener(menuListener);
+      jmDRHelp.add(jmiDRHelpWalk);
 
       jpDRCenter = new JPanel(new GridLayout(2, 2));
       jpDRCenter1 = new JPanel(new BorderLayout());
@@ -1287,6 +1296,18 @@ public class EdgeConvertGUI {
 	if ((ae.getSource() == jmiDTHelpDocumentation) || (ae.getSource() == jmiDRHelpDocumentation)) {
 		JOptionPane.showMessageDialog(null, 	"For MySQL Documentation Please Visit\n" +
 							"https://dev.mysql.com/doc/refman/5.7/en/");
+	}
+	if ((ae.getSource() == jmiDTHelpWalk) || (ae.getSource() == jmiDRHelpWalk)) {
+		JOptionPane.showMessageDialog(null,	"How to use Edge Converter:\n" +
+							"1) Open the .edg file you would like to work with and edit from the File option in the top left.\n" +
+							"2) Upon opening the file you may view the tables in the left box, click on the desired table to edit the fields associated.\n" +
+							"3) You may select any of the fields and edit the field type to be varchar, boolean, integer, or a double.\n" +
+							"4) Be sure to set the correct size for your fields to avoid any errors.\n" +
+							"5) After making sure the tables and fields are correct check out the define relations button, this works in a similar way to the first screen where you can click on the fields or tables to get more information.\n" +
+							"6) If you would like you bind or unbind any relations there must be two tables selected in the menu and they must have at least one related, so they may be bound to each table used.\n" +
+							"7) Once all options have been selected click the bind/unbind relation button to finalize the change.\n" +
+							"8) There is an option to go back to the Define tables if you would like to double check before going to the final step.\n" +
+							"9) Once you are satisfied with the tables, fields, and relationships you may continue forward and click the createDDL button to finalize the .edg to DDL conversion.");
 	}
       } // EdgeMenuListener.actionPerformed()
    } // EdgeMenuListener
