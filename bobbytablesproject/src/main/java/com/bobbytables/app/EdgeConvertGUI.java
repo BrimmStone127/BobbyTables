@@ -1294,8 +1294,17 @@ public class EdgeConvertGUI {
                                                 "2007-2008");
          }
 	if ((ae.getSource() == jmiDTHelpDocumentation) || (ae.getSource() == jmiDRHelpDocumentation)) {
-		JOptionPane.showMessageDialog(null, 	"For MySQL Documentation Please Visit\n" +
-							"https://dev.mysql.com/doc/refman/5.7/en/");
+		JOptionPane.showMessageDialog(null, 	"This application is built using the programming " +
+                "language Java, for Java documentation please follow this URL: https://docs.oracle.com/en/java/ \n This " +
+                "application uses MySQL to handle database interactions, for MySQL documentation please follow this URL:" +
+                "https://dev.mysql.com/doc/ \n\nThis application was developed by programmers. If you encounter an issue" +
+                " with this application and need to ask a programmer for help, remember to approach them slowly and " +
+                "carefully, gently speak to \nthe programmer in a reassuring tone of voice to ensure the programmmer does " +
+                "not get startled. Avoid eye contact or big words when communicating with the programmer. If the programmer" +
+                " gets upset do not panic, \nthey are gentle in nature and are harmless, when upset the programmer may" +
+                " post its complaints on a internet forum and will not retaliate in any way. Please make sure not to" +
+                "litter or pollute in a \nprogrammers environment, they are simple creatures and they live in a very" +
+                " delicate eco system.");
 	}
 	if ((ae.getSource() == jmiDTHelpWalk) || (ae.getSource() == jmiDRHelpWalk)) {
 		JOptionPane.showMessageDialog(null,	"How to use Edge Converter:\n" +
