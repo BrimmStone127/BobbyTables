@@ -544,7 +544,7 @@ public class EdgeConvertGUI {
       jmiDRHelpDocumentation.setMnemonic(KeyEvent.VK_A);
       jmiDRHelpDocumentation.addActionListener(menuListener);
       jmDRHelp.add(jmiDRHelpDocumentation);
-      jmDRHelp.add(jmiDRHelpWalk);
+      //jmDRHelp.add(jmiDRHelpWalk);
       jmiDRHelpWalk = new JMenuItem("Walkthrough");
       jmiDRHelpWalk.setMnemonic(KeyEvent.VK_A);
       jmiDRHelpWalk.addActionListener(menuListener);
