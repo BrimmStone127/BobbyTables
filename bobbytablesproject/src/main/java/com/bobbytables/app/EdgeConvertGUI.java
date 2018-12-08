@@ -995,21 +995,18 @@ public class EdgeConvertGUI {
 
 
          for (int i = 0; i < resultFiles.length; i++) {
-            System.out.println(resultFiles[i].getName());
+            //System.out.println(resultFiles[i].getName());
             if (!resultFiles[i].getName().endsWith(".class")) {
                continue; //ignore all files that are not .class files
             }
-            System.out.println("here");
+            //System.out.println("here");
 
             //System.out.println(resultClass.getSuperclass().getName());
             System.out.println(resultFiles[i].getName().substring(0, resultFiles[i].getName().lastIndexOf(".")));
 
-            String path = System.getProperty("user.dir");
+            //String path = System.getProperty("user.dir");
 
-            resultClass = Class.forName(path+"/target/classes/com/bobbytables/app/"+resultFiles[i].getName().substring(0, resultFiles[i].getName().lastIndexOf(".")));
-
-            
-
+            resultClass = Class.forName("com.bobbytables.app."+resultFiles[i].getName().substring(0, resultFiles[i].getName().lastIndexOf(".")));
 
             // if (resultClass.getSuperclass().getName().equals("EdgeConvertCreateDDL")) { //only interested in classes that extend EdgeConvertCreateDDL
             //    System.out.println("inside if statement");
