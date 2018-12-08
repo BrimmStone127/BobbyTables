@@ -1003,7 +1003,7 @@ public class EdgeConvertGUI {
             //System.out.println("here");
 
             //System.out.println(resultClass.getSuperclass().getName());
-            System.out.println(resultFiles[i].getName().substring(0, resultFiles[i].getName().lastIndexOf(".")));
+            //System.out.println(resultFiles[i].getName().substring(0, resultFiles[i].getName().lastIndexOf(".")));
 
             //String path = System.getProperty("user.dir");
 
