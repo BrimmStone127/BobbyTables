@@ -30,6 +30,7 @@ public class EdgeConvertFileParser {
    public static final String DELIM = "|";
    
    public EdgeConvertFileParser(File constructorFile) {
+      System.out.println("kdfkdnf");
       System.out.println(constructorFile.getName()); 
       numFigure = 0;
       numConnector = 0;
