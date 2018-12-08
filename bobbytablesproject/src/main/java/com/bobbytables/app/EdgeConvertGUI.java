@@ -956,6 +956,7 @@ public class EdgeConvertGUI {
       getOutputClasses();
 
       if (alProductNames.size() == 0) {
+         //System.out.println("hdfdfdfere");
          JOptionPane.showMessageDialog(null, "The path:\n" + outputDir + "\ncontains no valid output definition files.");
          outputDir = outputDirOld;
          return;
@@ -995,7 +996,7 @@ public class EdgeConvertGUI {
 
 
          for (int i = 0; i < resultFiles.length; i++) {
-            //System.out.println(resultFiles[i].getName());
+            //System.out.println(resultFiles[i].get   Name());
             if (!resultFiles[i].getName().endsWith(".class")) {
                continue; //ignore all files that are not .class files
             }
@@ -1008,34 +1009,35 @@ public class EdgeConvertGUI {
 
             resultClass = Class.forName("com.bobbytables.app."+resultFiles[i].getName().substring(0, resultFiles[i].getName().lastIndexOf(".")));
 
-            // if (resultClass.getSuperclass().getName().equals("EdgeConvertCreateDDL")) { //only interested in classes that extend EdgeConvertCreateDDL
-            //    System.out.println("inside if statement");
-            //    if (parseFile == null && saveFile == null) {
-            //       conResultClass = resultClass.getConstructor(paramTypesNull);
-            //       } else {
-            //       conResultClass = resultClass.getConstructor(paramTypes);
-            //       objOutput = conResultClass.newInstance(args);
-            //    }
-            //    alSubclasses.add(objOutput);
-            //    Method getProductName = resultClass.getMethod("getProductName", null);
-            //    String productName = (String)getProductName.invoke(objOutput, null);
-            //    alProductNames.add(productName);
-            // }
+            //System.out.println(resultClass.getSuperclass().getName());
+
+            if (resultClass.getSuperclass().getName().equals("com.bobbytables.app.EdgeConvertCreateDDL")) { //only interested in classes that extend EdgeConvertCreateDDL
+               if (parseFile == null && saveFile == null) {
+                  conResultClass = resultClass.getConstructor(paramTypesNull);
+                  } else {
+                  conResultClass = resultClass.getConstructor(paramTypes);
+                  objOutput = conResultClass.newInstance(args);
+               }
+               alSubclasses.add(objOutput);
+               Method getProductName = resultClass.getMethod("getProductName", null);
+               String productName = (String)getProductName.invoke(objOutput, null);
+               alProductNames.add(productName);
+            }
          }
       } 
-      // catch (InstantiationException ie) {
-      //    ie.printStackTrace();
-      // } 
+      catch (InstantiationException ie) {
+         ie.printStackTrace();
+      } 
       catch (ClassNotFoundException cnfe) {
          cnfe.printStackTrace();
       }
-      // catch (IllegalAccessException iae) {
-      //    iae.printStackTrace();
-      // } catch (NoSuchMethodException nsme) {
-      //    nsme.printStackTrace();
-      // } catch (InvocationTargetException ite) {
-      //    ite.printStackTrace();
-      // }
+      catch (IllegalAccessException iae) {
+         iae.printStackTrace();
+      } catch (NoSuchMethodException nsme) {
+         nsme.printStackTrace();
+      } catch (InvocationTargetException ite) {
+         ite.printStackTrace();
+      }
       if (alProductNames.size() > 0 && alSubclasses.size() > 0) { //do not recreate productName and objSubClasses arrays if the new path is empty of valid files
          productNames = (String[])alProductNames.toArray(new String[alProductNames.size()]);
          objSubclasses = (Object[])alSubclasses.toArray(new Object[alSubclasses.size()]);
