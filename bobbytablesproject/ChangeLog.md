@@ -1,4 +1,5 @@
-Change Log
+# Changes made to make a runnable file
+
 
 # To Run 
 1. Unzip the folder
@@ -11,3 +12,4 @@ Change Log
 8. Select OK for MySQL
 9. Select whatever name or save location for output file. 
 10. Select OK
+
